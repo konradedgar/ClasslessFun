@@ -1,0 +1,12 @@
+Package: ClasslessFun
+Title: A set of examples of using S3, S4 and Reference Classes
+Version: 0.0.0.0001
+Authors@R: 
+    person(given = "Konrad",
+           family = "Zdeb",
+           role = c("aut", "cre"),
+           email = "konrad.zdeb@me.com")
+Description: What the package does (one paragraph).
+License: What license it uses
+Encoding: UTF-8
+LazyData: true
