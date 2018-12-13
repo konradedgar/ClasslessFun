@@ -3,13 +3,20 @@
 \docType{class}
 \name{SummaryData-class}
 \alias{SummaryData-class}
+\alias{SummaryData}
 \title{Class SummaryData}
+\usage{
+\S4method{initialize}{SummaryData}(.Object, data = "data.frame",
+  summary_columns = "character", info = "character", ...)
+
+SummaryData(...)
+}
 \value{
 A SummaryData Class
 }
 \description{
 Odd class facilitating creation of data frame with
-  summary information.
+  summary information attached.
 }
 \section{Slots}{
 
@@ -18,6 +25,6 @@ Odd class facilitating creation of data frame with
 
 \item{\code{summary_columns}}{character.}
 
-\item{\code{comment}}{character.}
+\item{\code{info}}{character.}
 }}
 
