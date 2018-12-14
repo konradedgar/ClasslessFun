@@ -57,7 +57,7 @@ setMethod("initialize", "SummaryData", function(.Object,
     return(.Object)
 })
 
-#' Destructor for the refernece
+#' Destructor for the refernece SummaryData Class
 #'
 # setMethod("finalize", "SummaryData", function() {
 #     print(objects(.self))
@@ -72,13 +72,12 @@ setMethod("initialize", "SummaryData", function(.Object,
 
 #' Show method
 #' @rdname SummaryData-class
+#' @importFrom cli boxx
 setMethod(
     f = "show",
     signature = "SummaryData",
-    definition = function(.Object) {
-        cat(cli::boxx(
-            "Data:", .Object@data_name
-        ))
+    definition = function(object) {
+        cat(boxx(label = paste("Data:", object@data_name)))
     }
 )
 
