@@ -15,3 +15,5 @@ Depends:
     methods
 Suggests: 
     testthat
+Imports: 
+    cli

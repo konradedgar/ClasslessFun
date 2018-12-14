@@ -9,23 +9,25 @@
 #'
 #' @return A SummaryData Class
 #' @import methods
+#' @rdname SummaryData-class
 #' @exportClass SummaryData
 #'
 setClass(
     Class = "SummaryData",
     slots = list(
         data = "data.frame",
+        data_name = "character",
         summary_columns = "character",
         info = "character"
     )
 )
 
 #' Constructor method of SummaryData.
-#'
-#' @name SummaryData
 #' @rdname SummaryData-class
+#' @name SummaryData-class
 setMethod("initialize", "SummaryData", function(.Object,
                                                 data = "data.frame",
+                                                data_name = "character",
                                                 summary_columns = "character",
                                                 info = "character",
                                                 ...)
@@ -34,6 +36,11 @@ setMethod("initialize", "SummaryData", function(.Object,
         .Object@data <- data.frame()
     } else {
         .Object@data <- data
+    }
+    if (missing(data_name)) {
+        .Object@data_name <- deparse(substitute(x))
+    } else {
+        .Object@data_name <- data_name
     }
     if (missing(summary_columns)) {
         .Object@summary_columns <- character()
@@ -50,10 +57,35 @@ setMethod("initialize", "SummaryData", function(.Object,
     return(.Object)
 })
 
+#' Destructor for the refernece
+#'
+# setMethod("finalize", "SummaryData", function() {
+#     print(objects(.self))
+#     for (objName in objects(.self)) {
+#         obj = get(objName,  envir = .self)
+#         if (!is.function(obj)) {
+#             print(objName)
+#             print(obj)
+#         }
+#     }
+# })
+
+#' Show method
+#' @rdname SummaryData-class
+setMethod(
+    f = "show",
+    signature = "SummaryData",
+    definition = function(.Object) {
+        cat(cli::boxx(
+            "Data:", .Object@data_name
+        ))
+    }
+)
+
 #' Wrapper function SummaryData.
 #'
-#' @name SummaryData
 #' @rdname SummaryData-class
+#' @name SummaryData-class
 #' @export
 SummaryData <- function(...) {
     new("SummaryData", ...)

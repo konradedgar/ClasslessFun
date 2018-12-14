@@ -3,11 +3,15 @@
 \docType{class}
 \name{SummaryData-class}
 \alias{SummaryData-class}
+\alias{show,SummaryData-method}
 \alias{SummaryData}
 \title{Class SummaryData}
 \usage{
 \S4method{initialize}{SummaryData}(.Object, data = "data.frame",
-  summary_columns = "character", info = "character", ...)
+  data_name = "character", summary_columns = "character",
+  info = "character", ...)
+
+\S4method{show}{SummaryData}(object)
 
 SummaryData(...)
 }
@@ -17,6 +21,8 @@ A SummaryData Class
 \description{
 Odd class facilitating creation of data frame with
   summary information attached.
+
+Show method
 }
 \section{Slots}{
 
