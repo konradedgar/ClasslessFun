@@ -12,9 +12,9 @@
 #' @rdname SummaryData-class
 #' @exportClass SummaryData
 #'
-setClass(
+setRefClass(
     Class = "SummaryData",
-    slots = list(
+    fields = list(
         data = "data.frame",
         data_name = "character",
         summary_columns = "character",
